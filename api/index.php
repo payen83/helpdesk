@@ -5,15 +5,15 @@ require 'Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
 $app = new \Slim\Slim();
 
+$app->get('/aduan/user/:user_id/:token','getAduan2'); /* Aduan  */
+$app->get('/getAduanAll','getAduanAll'); /* Aduan  */
 $app->post('/login','login'); /* User login */
 $app->post('/signup','signup'); /* User Signup  */
-$app->post('/getAduan','getAduan'); /* User Feeds  */
-$app->get('/aduan/user/:user_id/:token','getAduan2'); /* User Feeds  */
+$app->post('/getAduan','getAduan'); /* Aduan  */
 $app->post('/createAduan','createAduan'); /* Aduan  */
-$app->post('/deleteAduan','deleteAduan'); /* User Feeds  */
-$app->post('/updateAduan','updateAduan'); /* User Feeds  */
+$app->post('/deleteAduan','deleteAduan'); /*  Aduan  */
+$app->post('/updateAduan','updateAduan'); /* Aduan  */
 $app->post('/getImages', 'getImages');
-$app->get('/getAduanAll','getAduanAll'); /* User Feeds  */
 
 $app->run();
 
@@ -28,7 +28,7 @@ function login() {
         
         $db = getDB();
         $userData ='';
-        $sql = "SELECT user_id, name, email, username FROM users WHERE (username=:username or email=:username) and password=:password ";
+        $sql = "SELECT user_id, name, email, username, role FROM users WHERE (username=:username or email=:username) and password=:password ";
         $stmt = $db->prepare($sql);
         $stmt->bindParam("username", $data->username, PDO::PARAM_STR);
         $password=hash('sha256',$data->password);
@@ -67,7 +67,8 @@ function signup() {
     $name=$data->name;
     $username=$data->username;
     $password=$data->password;
-    
+    $role="user";
+
     try {
         
         $username_check = preg_match('~^[A-Za-z0-9_]{3,20}$~i', $username);
@@ -92,13 +93,14 @@ function signup() {
             {
                 
                 /*Inserting user values*/
-                $sql1="INSERT INTO users(username,password,email,name)VALUES(:username,:password,:email,:name)";
+                $sql1="INSERT INTO users(username,password,email,name,role)VALUES(:username,:password,:email,:name,:role)";
                 $stmt1 = $db->prepare($sql1);
                 $stmt1->bindParam("username", $username,PDO::PARAM_STR);
                 $password=hash('sha256',$data->password);
                 $stmt1->bindParam("password", $password,PDO::PARAM_STR);
                 $stmt1->bindParam("email", $email,PDO::PARAM_STR);
                 $stmt1->bindParam("name", $name,PDO::PARAM_STR);
+                $stmt1->bindParam("role", $role,PDO::PARAM_STR);
                 $stmt1->execute();
                 
                 $userData=internalUserDetails($email);
