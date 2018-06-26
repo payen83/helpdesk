@@ -7,7 +7,7 @@
 3. Extract the zip file in c:\xampp\htdocs
 4. Rename the root folder as 'helpdesk'
 5. Go to PHPMyAdmin, create new database name 'nre'
-3. At nre database, run the sql command below: 
+6. At nre database, run the sql command below: 
 
 ```
 CREATE TABLE users(
@@ -33,6 +33,6 @@ created int
 
 ); 
 ```
-5. Download and install Postman, make sure you sign up and log in.
-6. Open Postman, click on import, then choose ```nre_api.json``` in \helpdesk folder
-7. Run and test API!
+7. Download and install Postman, make sure you sign up and log in.
+8. Open Postman, click on import, then choose ```nre_api.json``` in \helpdesk folder
+9. Run and test API!
