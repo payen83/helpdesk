@@ -1,0 +1,230 @@
+{
+	"info": {
+		"name": "Win NRE Helpdesk",
+		"_postman_id": "be7c8fcd-292a-9e00-4e2d-a7e2c1408e00",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NRE Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"payen83\",\n  \"password\": \"abc123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/helpdesk/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"helpdesk",
+						"api",
+						"login"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "NRE Signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"payen83\",\n  \"email\": \"payen83@gmail.com\",\n  \"password\": \"abc123\",\n  \"name\": \"Fazreen Mohd Fauzi\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/helpdesk/api/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"helpdesk",
+						"api",
+						"signup"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "NRE Create Aduan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"user_id\": 1,\n\"token\": \"d5f66a06ec809d70d0c52842df8dc0011d7d1ad0f2d56f50d3123da17a2489fe\",\n\"title\": \"Lampu Lobi Rosak\",\n\"kategori\": \"Kerosakan\",\n\"masalah\": \"lampu berkelip-kelip buka dibuka\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/helpdesk/api/createAduan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"helpdesk",
+						"api",
+						"createAduan"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "NRE GetAduan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"user_id\": 1,\n\"token\": \"d5f66a06ec809d70d0c52842df8dc0011d7d1ad0f2d56f50d3123da17a2489fe\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/helpdesk/api/getAduan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"helpdesk",
+						"api",
+						"getAduan"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "NRE Get All Aduan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"user_id\": 1,\n\"token\": \"d5f66a06ec809d70d0c52842df8dc0011d7d1ad0f2d56f50d3123da17a2489fe\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/helpdesk/api/getAduanAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"helpdesk",
+						"api",
+						"getAduanAll"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "NRE Delete Aduan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"user_id\": 1,\n\"aduan_id\": 1,\n\"token\": \"d5f66a06ec809d70d0c52842df8dc0011d7d1ad0f2d56f50d3123da17a2489fe\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/helpdesk/api/deleteAduan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"helpdesk",
+						"api",
+						"deleteAduan"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "NRE Update Aduan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"user_id\": 2,\n\"aduan_id\": 3,\n\"token\": \"998d68db1cf88c77aed47e98bc0a6b95ee830f9a5b9094d182cf703274f6bb61\",\n\"status\": \"Bunyi bising\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/helpdesk/api/updateAduan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"helpdesk",
+						"api",
+						"updateAduan"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "NRE Aduan by user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/helpdesk/api/aduan/user/1/d5f66a06ec809d70d0c52842df8dc0011d7d1ad0f2d56f50d3123da17a2489fe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"helpdesk",
+						"api",
+						"aduan",
+						"user",
+						"1",
+						"d5f66a06ec809d70d0c52842df8dc0011d7d1ad0f2d56f50d3123da17a2489fe"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
